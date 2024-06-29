@@ -14,3 +14,9 @@ plugins {
 //    toolchain.languageVersion.set(JavaLanguageVersion.of(11))
 //
 //}
+
+dependencies {
+    implementation(dependencyNotation = project(":data-model"))
+    // coordinate notation : (group : name : version) 
+    implementation(dependencyNotation = "org.apache.commons:commons-lang3:3.12.0")
+}

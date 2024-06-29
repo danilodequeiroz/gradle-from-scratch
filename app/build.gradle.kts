@@ -14,3 +14,12 @@ plugins {
 //    toolchain.languageVersion.set(JavaLanguageVersion.of(11))
 //
 //}
+
+application{
+    mainClass.set("com.github.danilodequeiroz.graldefundamentals.Application")
+}
+
+dependencies{
+    implementation(dependencyNotation = project(":business-logic"))
+    implementation(dependencyNotation = project(":data-model"))
+}
