@@ -2,7 +2,8 @@ rootProject.name = "gradle-from-scratch"
 
 pluginManagement {
     repositories.gradlePluginPortal()
-    repositories.google()
+//    repositories.mavenCentral()
+//    repositories.google()
 
     /**
      * Adding custom maven repos such as internal mirrors
@@ -18,13 +19,13 @@ pluginManagement {
     to be used on this project (current: gradle-from-scratch)
      **/
 
-//    includeBuild("gradle/plugins")
+    includeBuild("gradle/plugins")
 
 }
 
 dependencyResolutionManagement {
     repositories.mavenCentral()
-    repositories.google()
+//    repositories.google()
 
     /**
      * Adding custom maven repos such as internal mirrors

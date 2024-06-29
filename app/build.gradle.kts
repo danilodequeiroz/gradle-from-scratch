@@ -1,10 +1,16 @@
 plugins {
-    id("application")
+//    id("application") // already applies id("java")
+    id("my-application")
 }
 
-// Extension from the "java", "java-library" and "application" plugins
-java{
+// java { } clause is an extension from the
+// "java", "java-library" and "application" plugins.
+//
+// We don't need to apply for each build.gradle.kts
+// when using `custom` plugin named "my-application"
 
-    toolchain.languageVersion.set(JavaLanguageVersion.of(11))
-
-}
+//java{
+//
+//    toolchain.languageVersion.set(JavaLanguageVersion.of(11))
+//
+//}
