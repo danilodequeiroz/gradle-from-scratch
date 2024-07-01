@@ -1,7 +1,6 @@
-import gradle.kotlin.dsl.accessors._e054d9723d982fdb55b1e388b8ab0cbf.java
-
 plugins {
     id("java")
+    id("com.diffplug.spotless")
 }
 
 // Extension from the "java", "java-library" and "application" plugins
