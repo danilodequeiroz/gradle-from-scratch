@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
 //    id("java-library")
     id("my-java-library")
