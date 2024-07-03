@@ -3,6 +3,7 @@ import gradle.kotlin.dsl.accessors._a36adeff7943c18d5e9e07d718caef3f.compileTest
 plugins {
     id("java")
     id("com.diffplug.spotless")
+    //id("com.autonomousapps.dependency-analysis")
 }
 
 // Extension from the "java", "java-library" and "application" plugins

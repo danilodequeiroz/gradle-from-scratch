@@ -19,4 +19,15 @@ dependencies {
     implementation(dependencyNotation = project(":data-model"))
     // coordinate notation : (group : name : version) 
     implementation(dependencyNotation = "org.apache.commons:commons-lang3:3.12.0")
+    implementation("org.slf4j:slf4j-api:1.7.36")
+
+//    api("") // <-- dependency is transitively visible as compilatio (java-library only)
+//    runtimeOnly("") // <-- only at runtime
+//    compileOnly("group:name") // <-- only at compile time
+}
+
+configurations {
+    compileClasspath // <- compile time "view" (aka "variation")
+    runtimeClasspath // <- runtime "view" (aka "variation")
+
 }

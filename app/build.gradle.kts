@@ -15,11 +15,13 @@ plugins {
 //
 //}
 
-application{
+application {
     mainClass.set("com.github.danilodequeiroz.graldefundamentals.Application")
 }
 
-dependencies{
+dependencies {
     implementation(dependencyNotation = project(":business-logic"))
     implementation(dependencyNotation = project(":data-model"))
+    runtimeOnly("org.slf4j:slf4j-simple:1.7.36")
+
 }
