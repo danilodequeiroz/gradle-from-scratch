@@ -21,3 +21,13 @@ tasks.register<Zip>("bundle") {
     destinationDirectory.set(layout.buildDirectory.dir("distribution"))
 //    from("build/libs/app.jar")
 }
+
+tasks.build {
+    dependsOn(tasks.named("bundle"))
+}
+
+tasks.register("buildsAll") {
+    description = "builds even more.."
+    dependsOn(tasks.build)
+    dependsOn(tasks.named("countJars"))
+}
