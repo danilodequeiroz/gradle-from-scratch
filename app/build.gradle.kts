@@ -22,6 +22,6 @@ application {
 dependencies {
     implementation(dependencyNotation = project(":business-logic"))
     implementation(dependencyNotation = project(":data-model"))
-    runtimeOnly("org.slf4j:slf4j-api:2.0.13")
+    runtimeOnly("org.slf4j:slf4j-simple:2.0.13")
 
 }
