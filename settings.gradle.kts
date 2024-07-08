@@ -20,7 +20,6 @@ pluginManagement {
      **/
 
     includeBuild("gradle/plugins")
-
 }
 
 dependencyResolutionManagement {
@@ -42,6 +41,7 @@ dependencyResolutionManagement {
     **/
 
  //    includeBuild("../gradle-from-scratch-dependant-build")
+    includeBuild("gradle/platform")
 }
 
 

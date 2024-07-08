@@ -15,3 +15,7 @@ plugins {
 //    toolchain.languageVersion.set(JavaLanguageVersion.of(11))
 //
 //}
+
+dependencies {
+    implementation(platform("com.github.danilodequeiroz:platform"))
+}
