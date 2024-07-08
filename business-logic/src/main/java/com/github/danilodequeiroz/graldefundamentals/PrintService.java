@@ -10,7 +10,7 @@ public class PrintService {
 
     public void print(MessageModel model) {
         logger.info("Printing " + model.getMessage());
-        String message = model.getMessage();
+        String message = StringUtils.trim(model.getMessage());
         System.out.println(StringUtils.trim(message));
     }
 }

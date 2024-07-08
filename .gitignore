@@ -316,3 +316,4 @@ fabric.properties
 /.idea/misc.xml
 /.idea/vcs.xml
 /.idea/compiler.xml
+/.idea/kotlinc.xml

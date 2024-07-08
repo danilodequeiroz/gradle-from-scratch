@@ -22,7 +22,7 @@ dependencies {
     // coordinate notation : (group : name : version) 
     implementation(dependencyNotation = "org.apache.commons:commons-lang3:3.12.0")
 //    api(dependencyNotation = "org.apache.commons:commons-lang3:3.12.0")  // <- if you wish to expose all classes and references to upper level (app module)
-    implementation("org.slf4j:slf4j-api:1.7.36")
+    implementation("org.slf4j:slf4j-api:2.0.13")
 
 //    api("") // <-- dependency is transitively visible as compilatio (java-library only)
 //    runtimeOnly("") // <-- only at runtime
