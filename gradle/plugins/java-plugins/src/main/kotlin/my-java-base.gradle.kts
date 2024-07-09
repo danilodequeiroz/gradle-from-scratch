@@ -53,7 +53,9 @@ tasks.compileTestJava {
 }
 
 tasks.test {
-
+    useJUnitPlatform()
+    maxParallelForks = 8
+    maxHeapSize = "4g"
 }
 
 tasks.javadoc {
