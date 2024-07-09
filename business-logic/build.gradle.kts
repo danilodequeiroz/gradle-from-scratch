@@ -18,14 +18,21 @@ plugins {
 //}
 
 dependencies {
+    // coordinate notation : (group : name : version)
     implementation(platform("com.github.danilodequeiroz:platform"))
     implementation(dependencyNotation = project(":data-model"))
-    // coordinate notation : (group : name : version) 
+
+    /**
+     *  api(dependencyNotation = "org.apache.commons:commons-lang3:3.12.0")
+     *   - if you wish to expose all classes and references to upper level (app module)
+     */
     implementation(dependencyNotation = "org.apache.commons:commons-lang3")
-//    api(dependencyNotation = "org.apache.commons:commons-lang3:3.12.0")  // <- if you wish to expose all classes and references to upper level (app module)
     implementation("org.slf4j:slf4j-api")
 
-//    api("") // <-- dependency is transitively visible as compilatio (java-library only)
+    testImplementation("org.junit.jupiter:junit-jupiter-api") // Section 4: Tests
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine") // Section 4: Tests
+
+//    api("") // <-- dependency is transitively visible as compilation (java-library only)
 //    runtimeOnly("") // <-- only at runtime
 //    compileOnly("group:name") // <-- only at compile time
 }

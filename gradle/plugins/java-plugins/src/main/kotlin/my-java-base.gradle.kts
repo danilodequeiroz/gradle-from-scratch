@@ -1,11 +1,23 @@
 import com.github.danilodequeiroz.gradlefundamentals.Slf4jSimpleRule
 import gradle.kotlin.dsl.accessors._a36adeff7943c18d5e9e07d718caef3f.compileTestJava
+import gradle.kotlin.dsl.accessors._a36adeff7943c18d5e9e07d718caef3f.sourceSets
 
 plugins {
     id("java")
     id("com.diffplug.spotless")
     //id("com.autonomousapps.dependency-analysis")
 }
+
+sourceSets.main {
+//    java.setSrcDirs(listOf(layout.projectDirectory.dir("sources")))
+}
+
+sourceSets.test {
+
+}
+
+sourceSets.create("integrationTest")
+
 /**
  * If you run the ':dependencies' task and you see something weird in there, which you didn't expect, and
  * then find out that the metadata of one component is not as it should be, you can use such rules to adjust it.

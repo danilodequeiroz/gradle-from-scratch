@@ -8,6 +8,7 @@ javaPlatform.allowDependencies()
 
 dependencies {
     api(platform("com.fasterxml.jackson:jackson-bom:2.17.2"))
+    api(platform("org.junit:junit-bom:5.10.3"))
 }
 
 dependencies.constraints {
