@@ -11,7 +11,7 @@ dependencies {
 }
 
 dependencies.constraints {
-    api(constraintNotation = "org.apache.commons:commons-lang3:3.12.0")
+    api(constraintNotation = "org.apache.commons:commons-lang3:3.14.0")
     api(constraintNotation = "org.slf4j:slf4j-api:2.0.13")
     api(constraintNotation = "org.slf4j:slf4j-simple:2.0.13")
 }

@@ -23,5 +23,7 @@ dependencies {
     implementation(platform("com.github.danilodequeiroz:platform"))
     implementation(dependencyNotation = project(":business-logic"))
     implementation(dependencyNotation = project(":data-model"))
-    runtimeOnly("org.slf4j:slf4j-simple")
+    runtimeOnly(libs.slf4j.simple)
+    /** Previous method  */
+//    runtimeOnly("org.slf4j:slf4j-simple")
 }
