@@ -1,7 +1,7 @@
 plugins {
 //    id("java")
 //    id("java-library") // already applies id("java")
-    id("my-java-library")
+    id 'my-java-library'
 }
 
 // java { } clause is an extension from the
@@ -17,5 +17,5 @@ plugins {
 //}
 
 dependencies {
-    implementation(platform("com.github.danilodequeiroz:platform"))
+    implementation platform('com.github.danilodequeiroz:platform')
 }

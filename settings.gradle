@@ -1,5 +1,3 @@
-rootProject.name = "gradle-from-scratch"
-
 pluginManagement {
     repositories.gradlePluginPortal()
 //    repositories.mavenCentral()
@@ -19,7 +17,7 @@ pluginManagement {
     to be used on this project (current: gradle-from-scratch)
      **/
 
-    includeBuild("gradle/plugins")
+    includeBuild('gradle/plugins')
 }
 
 dependencyResolutionManagement {
@@ -41,17 +39,19 @@ dependencyResolutionManagement {
     **/
 
  //    includeBuild("../gradle-from-scratch-dependant-build")
-    includeBuild("gradle/platform")
+    includeBuild('gradle/platform')
 }
+
+rootProject.name = 'my-project'
 
 
 // app
 // business-logic
 // data-model
 
-include("app")
-include("business-logic")
-include("data-model")
+include('app')
+include('business-logic')
+include('data-model')
 
 
 //include("app", "business-logic", "data-model")

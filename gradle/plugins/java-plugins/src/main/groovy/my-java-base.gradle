@@ -1,0 +1,60 @@
+import com.github.danilodequeiroz.gradlefundamentals.Slf4jSimpleRule;
+
+plugins {
+    id 'java'
+    id 'com.diffplug.spotless'
+    // id 'com.autonomousapps.dependency-analysis'
+}
+
+dependencies.components {
+    withModule('org.slf4j:slf4j-simple', Slf4jSimpleRule)
+}
+
+// Extension from the "java", "java-library" and "application" plugins
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(11))
+}
+
+// Always be careful with this setup
+// In this case make sense because it's just encoding everything using utf-8,
+// but for other configurations wouldn't  be a good practice
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.named('test') {
+    useJUnitPlatform {
+        excludeTags('slow')
+    }
+
+    maxParallelForks = 8
+    maxHeapSize = '4g'
+}
+/*
+    With this setup, we split the execution of tests from the test source set into two groups.
+    This could be used, for example, to make it clear that certain tests are quite slow and probably only
+    should run on CI. So that if you run tests locally, they would be excluded,
+    but they won't be excluded if you do a complete ':check' run.
+ */
+tasks.register('testSlow', Test) {                        // Basically the task needs to know about two things:
+    testClassesDirs = sourceSets.test.output.classesDirs  // (1) where the tests are located and
+    classpath = sourceSets.test.runtimeClasspath          // (2) what the classpath of the tests is.
+    useJUnitPlatform {
+        includeTags('slow')
+    }
+}
+/*
+    This complements the previous block
+ */
+tasks.named('check') {
+    dependsOn(tasks.named('testSlow'))
+}
+
+sourceSets.create('integrationTest')
+
+tasks.register('integrationTest', Test) {
+    testClassesDirs = sourceSets['integrationTest'].output.classesDirs
+    classpath = sourceSets['integrationTest'].runtimeClasspath
+
+    useJUnitPlatform()
+}
