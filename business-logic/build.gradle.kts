@@ -32,6 +32,9 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api") // Section 4: Tests
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine") // Section 4: Tests
 
+    integrationTestImplementation("org.junit.jupiter:junit-jupiter-api") // Section 4: Tests
+    integrationTestRuntimeOnly("org.junit.jupiter:junit-jupiter-engine") // Section 4: Tests
+
 //    api("") // <-- dependency is transitively visible as compilation (java-library only)
 //    runtimeOnly("") // <-- only at runtime
 //    compileOnly("group:name") // <-- only at compile time

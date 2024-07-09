@@ -18,6 +18,12 @@ sourceSets.test {
 
 sourceSets.create("integrationTest")
 
+tasks.register<Test>("integrationTest") {                               // Basically the task needs to know about two things:
+    testClassesDirs = sourceSets["integrationTest"].output.classesDirs // (1) where the tests are located and
+    classpath = sourceSets["integrationTest"].runtimeClasspath         // (2) what the classpath of the tests is.
+    useJUnitPlatform()
+}
+
 /**
  * If you run the ':dependencies' task and you see something weird in there, which you didn't expect, and
  * then find out that the metadata of one component is not as it should be, you can use such rules to adjust it.
@@ -53,9 +59,30 @@ tasks.compileTestJava {
 }
 
 tasks.test {
-    useJUnitPlatform()
+    useJUnitPlatform {
+        excludeTags("slow")
+    }
     maxParallelForks = 8
     maxHeapSize = "4g"
+}
+/*
+    With this setup, we split the execution of tests from the test source set into two groups.
+    This could be used, for example, to make it clear that certain tests are quite slow and probably only
+    should run on CI. So that if you run tests locally, they would be excluded,
+    but they won't be excluded if you do a complete ':check' run.
+ */
+tasks.register<Test>("testSlow") {                        // Basically the task needs to know about two things:
+    testClassesDirs = sourceSets.test.get().output.classesDirs // (1) where the tests are located and
+    classpath = sourceSets.test.get().runtimeClasspath         // (2) what the classpath of the tests is.
+    useJUnitPlatform {
+        includeTags("slow")
+    }
+}
+/*
+    This complements the previous block
+ */
+tasks.check {
+    dependsOn(tasks.named("testSlow"))
 }
 
 tasks.javadoc {
